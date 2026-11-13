@@ -1,0 +1,618 @@
+import os, sys
+
+os.system(
+    f"{sys.executable} -m pip install selenium webdriver-manager google-genai dotenv seleniumbase"
+)
+
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from google import genai
+from google.genai import types
+import time
+from selenium.common.exceptions import NoSuchElementException
+from dotenv import load_dotenv
+from seleniumbase import SB
+import json
+import re
+
+load_dotenv()
+
+
+def iniciar_navegador(driver, email, senha):
+    try:
+        # Acessa a página de login do 99Freelas
+        print("Iniciando o navegador no modo indetectável...")
+
+        # Usamos o Driver do SeleniumBase sem o bloco 'with' para que o
+        # navegador continue aberto após o fim desta funçã
+        url = "https://www.99freelas.com.br/login"
+        # driver.get(url)
+
+        # Abre a página desconectando o driver estrategicamente para evitar detecção
+        driver.uc_open_with_reconnect(url, reconnect_time=6)
+
+        # Se houver um CAPTCHA simples (como o Turnstile da Cloudflare), ele tenta clicar sozinho
+        driver.uc_gui_click_captcha()
+
+        # Insere o email e a senha
+        driver.type("//*[@id='email']", email)
+        driver.type("//*[@id='senha']", senha)
+
+        # Submete o formulário pressionando ENTER
+        driver.click("//*[@id='btnEfetuarLogin']")
+
+        # Define um tempo máximo de espera (10 segundos)
+        # wait = WebDriverWait(driver, 120)
+
+        # Aguarda a URL mudar para confirmar que saiu da página de login
+        WebDriverWait(driver.driver, 15).until(EC.url_changes(url))
+        print("Login realizado com sucesso!")
+
+        return driver
+
+    except Exception as e:
+        print(f"Ocorreu um erro durante a automação: {e}")
+        # Retorna o driver mesmo com erro, para permitir debug (ou você pode usar driver.quit() aqui)
+        return None
+
+
+def navegar_para_automacao(driver, filtro):
+    """
+    Navega pelo menu do 99Freelas até a busca de projetos e pesquisa por 'automação'.
+    """
+    # Define o tempo máximo de espera para que os elementos apareçam na tela (15 segundos)
+    WebDriverWait(driver, 15)
+
+    try:
+        # 1. Clicar no menu 'Projetos'
+        print("Buscando o menu 'Projetos'...")
+        # Procura um link (tag <a>) ou botão que contenha o texto 'Projetos'
+        driver.click("/html/body/div[1]/div[1]/div/ul/li[2]/a")
+
+        # 2. Clicar em 'Buscar Projetos'
+        print("Clicando em 'Buscar Projetos'...")
+        # Procura o link específico do submenu
+        driver.click("/html/body/div[1]/div[1]/div/ul/li[2]/ul/li[1]/a")
+
+        # 3. Digitar 'automação' no campo de busca de filtros
+        print("Aguardando a página de busca carregar...")
+
+        # Estratégia de localização: Tenta encontrar o input pelo nome (geralmente 'q' ou 'query')
+        # ou por atributos comuns de campos de busca na lateral de 'Meus filtros'
+        # O "\n" no final simula o botão ENTER do teclado
+
+        # 4. Aplicar a pesquisa
+        print("Aplicando o filtro...")
+        driver.sleep(3)
+        driver.type("//*[@id='nome-meu-filtro']", filtro + "\n")
+        print(f"O filtro'{filtro}' foi aplicado com sucesso!")
+
+    except Exception as e:
+        print(f"Ocorreu um erro durante a navegação: {e}")
+
+
+def eh_projeto_exclusivo(driver, num):
+    """
+    Verifica se o projeto na posição 'num' é exclusivo com base na imagem do selo.
+    Retorna True se for exclusivo, False caso contrário ou se a imagem não existir.
+    """
+
+    # Monta o XPath dinamicamente utilizando f-string com o número do índice
+    xpath_imagem = f"/html/body/div[1]/div[3]/div[3]/ul/li[{num}]/div[1]/img"
+    try:
+        # 1. Verifica silenciosamente se a imagem existe (Retorna True ou False na hora, sem erros)
+        if driver.is_element_present(xpath_imagem):
+
+            # 2. Pega o atributo 'src' diretamente usando o XPath
+            src = driver.get_attribute(xpath_imagem, "src")
+
+            # 3. Verifica se a URL da imagem contém o nome do selo
+            if src and "flat_project_exclusive.png" in src:
+                return True
+
+    except NoSuchElementException:
+        # Se a imagem não for encontrada no HTML, captura a exceção
+        # e permite que a função siga para retornar False
+        pass
+
+    # Retorna False para qualquer outro cenário (não tem a string ou a imagem não existe)
+    return False
+
+
+def obter_descricao_projeto(driver, num):
+    aba_original = driver.driver.current_window_handle
+    texto_descricao = False
+
+    xpath_titulo = f"/html/body/div[1]/div[3]/div[3]/ul/li[{num}]/hgroup/h1/a"
+    seletor_descricao = "/html/body/div[1]/div[3]/div[1]/div[3]/div/div[1]/div[1]/div"
+
+    if not driver.is_element_present(xpath_titulo):
+        return False
+
+    url_projeto = driver.get_attribute(xpath_titulo, "href")
+    if not url_projeto:
+        return False
+
+    try:
+        driver.execute_script(f"window.open('{url_projeto}', '_blank');")
+        driver.switch_to_newest_window()
+
+        driver.wait_for_element_visible(seletor_descricao, timeout=10)
+        texto_descricao = driver.get_text(seletor_descricao)
+    except Exception:
+        texto_descricao = False
+
+    return texto_descricao
+
+
+def gerar_proposta_gemini(driver, descricao_projeto):
+    """
+    Recebe a descrição do projeto, pede a proposta ao Gemini em formato JSON
+    e tenta novamente caso os servidores do Google estejam sobrecarregados.
+    """
+    try:
+        contratante = driver.get_text(
+            "/html/body/div[1]/div[3]/div[1]/div[3]/div/div[2]/div[2]/div[2]/div/a/span"
+        )
+    except:
+        contratante = "Cliente"
+
+    prompt = f"""
+Você é um desenvolvedor freelancer especializado em automação e engenharia de dados. Com base na descrição do projeto abaixo, crie uma proposta de trabalho.
+
+Siga RIGOROSAMENTE as seguintes regras:
+1. Retorne EXCLUSIVAMENTE um objeto JSON válido. NENHUM texto fora do JSON.
+2. O JSON deve conter exatamente duas chaves:
+- "proposta": O texto completo da proposta a ser enviada ao cliente.
+- "tempo_dias": Apenas um número inteiro representando a estimativa de dias para entregar o projeto.
+
+Regras para o texto da chave "proposta":
+- Escreva de forma humana, direta e profissional.
+- Deixe claro que farei o serviço gratuitamente para construir portfólio, demonstrando confiança.
+- Nunca use asteriscos (*) ou formatações markdown.
+- Inclua a estimativa de tempo no texto de forma natural.
+- Insira meus contatos: Yohan Vallier / yohanvallier01@gmail.com / WhatsApp: 21965156704
+
+- Nome do Contratante: {contratante}
+- Descrição do Projeto: {descricao_projeto}
+"""
+
+    # Lógica de Retry: Tentar até 3 vezes se o servidor estiver sobrecarregado
+    tentativas = 3
+
+    for tentativa in range(1, tentativas + 1):
+        try:
+            client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+            gemini_model = os.getenv("GEMINI_MODEL")
+
+            configuracao_seguranca = types.GenerateContentConfig(
+                response_mime_type="application/json",
+                safety_settings=[
+                    types.SafetySetting(
+                        category=types.HarmCategory.HARM_CATEGORY_HARASSMENT,
+                        threshold=types.HarmBlockThreshold.BLOCK_NONE,
+                    ),
+                    types.SafetySetting(
+                        category=types.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+                        threshold=types.HarmBlockThreshold.BLOCK_NONE,
+                    ),
+                    types.SafetySetting(
+                        category=types.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+                        threshold=types.HarmBlockThreshold.BLOCK_NONE,
+                    ),
+                    types.SafetySetting(
+                        category=types.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+                        threshold=types.HarmBlockThreshold.BLOCK_NONE,
+                    ),
+                ],
+            )
+
+            response = client.models.generate_content(
+                model=gemini_model, contents=prompt, config=configuracao_seguranca
+            )
+
+            dados_retornados = json.loads(response.text)
+            texto_proposta = dados_retornados.get(
+                "proposta", "Não foi possível gerar a proposta."
+            )
+            tempo_gemini = dados_retornados.get("tempo_dias", 0)
+
+            return texto_proposta, tempo_gemini
+
+        except Exception as e:
+            erro_str = str(e)
+            # Verifica se o erro é o 503 (Servidor indisponível) ou 429 (Muitas requisições)
+            if "503" in erro_str or "429" in erro_str:
+                print(
+                    f"⚠️ Servidor do Gemini sobrecarregado (Tentativa {tentativa}/{tentativas}). Aguardando 10 segundos..."
+                )
+                if tentativa < tentativas:
+                    time.sleep(10)  # Espera 10 segundos antes de tentar de novo
+                    continue  # Volta para o começo do For
+
+            # Se for outro tipo de erro (como erro de validação JSON) ou se acabaram as tentativas
+            print(f"❌ Erro Crítico na API do Gemini: {e}")
+            return "Não foi possível gerar a proposta no momento.", 0
+
+    return "Não foi possível gerar a proposta devido à instabilidade do servidor.", 0
+
+
+def enviar_proposta_99freelas(driver, texto_proposta, tempo_gemini):
+    """
+    Clica no botão de enviar proposta na página do projeto, preenche os detalhes
+    com o texto gerado, insere a duração estimada e submete o formulário.
+    """
+    # Pequena pausa para garantir que a página do projeto esteja totalmente carregada
+    time.sleep(6)
+
+    # # Guarda a janela principal (a aba onde estamos agora)
+    # janela_principal = driver.driver.window_handles[-1]
+
+    try:
+        # 1. Localizar e clicar no botão inicial para abrir o formulário de proposta
+        print("Abrindo formulário de proposta...")
+        driver.click("/html/body/div[1]/div[3]/div[1]/div[3]/div/div[2]/p[3]/a")
+
+        # Espera para a nova página carregar
+        driver.sleep(3)
+
+        # =========================================================
+        # SOLUÇÃO AQUI: Verifica se uma nova aba foi aberta
+        # Se sim, muda o foco do driver para a aba mais recente
+        # =========================================================
+        if len(driver.driver.window_handles) > 1:
+            driver.switch_to_newest_window()
+
+        # Garante que o campo de texto está visível na aba correta antes de tentar digitar
+        driver.wait_for_element_visible("//*[@id='proposta']", timeout=30)
+
+        # 2. Preencher o campo 'Detalhes' da proposta
+        print("Preenchendo detalhes da proposta...")
+        driver.type("//*[@id='proposta']", texto_proposta)
+
+        # Preenche o campo de duração
+        driver.type("//*[@id='duracao-estimada']", str(tempo_gemini))
+
+        # 3. Clicar no botão final para submeter a proposta
+        print("Submetendo proposta...")
+        driver.click("//*[@id='btnConcluirEnvioProposta']")
+
+        # 4. Aguarda o tempo de forma segura após o redirecionamento
+        driver.sleep(5)
+        print("Proposta enviada com sucesso!")
+
+        # =========================================================
+        # LIMPEZA: Se estávamos numa nova aba, fecha ela e volta para a principal
+        # =========================================================
+        if len(driver.window_handles) > 1:
+            driver.driver.close()  # Fecha a aba atual (a da proposta enviada)
+            driver.switch_to_window(
+                janela_principal
+            )  # Volta o foco para a aba anterior
+
+    except Exception as e:
+        print(f"Ocorreu um erro durante o envio da proposta: {e}")
+
+        # Se der erro e ele estiver preso numa aba nova, garante que vai fechar também
+        if len(driver.driver.window_handles) > 1:
+            driver.driver.close()
+            driver.switch_to_window(janela_principal)
+
+
+def voltar_para_lista_de_projetos(driver):
+    """Fecha todas as abas extras e garante o foco na primeira aba (lista de projetos)."""
+    # Enquanto houver mais de 1 aba aberta, fecha a mais recente
+    while len(driver.driver.window_handles) > 1:
+        driver.switch_to_newest_window()
+        driver.driver.close()  # Comando oficial do SeleniumBase para fechar a aba
+        driver.sleep(0.5)
+
+    # Garante que o foco retorne para a aba principal (índice 0)
+    driver.switch_to_window(0)
+
+
+def raspar_propostas_ja_enviadas(driver):
+    """
+    Clica repetidamente no botão para carregar todas as propostas anteriores
+    até ele desaparecer, e depois raspa todos os títulos.
+    """
+    titulos_salvos = []
+    xpath_botao_mais = '//*[@id="minhas-propostas"]/div[2]/div[2]'
+    xpath_ul = '//*[@id="minhas-propostas"]/div[2]/ul'
+
+    print("Verificando propostas já enviadas anteriormente...")
+    driver.sleep(3)  # Aguarda o carregamento do painel principal
+
+    try:
+        # 1. Clicar no botão até ele desaparecer do HTML ou ficar invisível
+        print("Expandindo o histórico de propostas...")
+        tentativas = 0
+
+        # O loop continua enquanto o botão estiver visível na tela e não passar de 50 cliques
+        while driver.is_element_visible(xpath_botao_mais) and tentativas < 50:
+            try:
+                driver.click(xpath_botao_mais)
+                print(
+                    f"Botão clicado ({tentativas + 1}). Aguardando carregar mais itens..."
+                )
+                driver.sleep(
+                    2.5
+                )  # Tempo essencial para o 99Freelas processar os novos 'li' na tela
+                tentativas += 1
+            except Exception as e:
+                print("O botão parou de responder ou desapareceu.")
+                break
+
+        print("Todo o histórico foi expandido na tela.")
+
+        # 2. Extrair os títulos de todos os 'li' carregados dentro do 'ul'
+        if driver.is_element_present(xpath_ul):
+            elementos_li = driver.find_elements(f"{xpath_ul}/li")
+            total_propostas = len(elementos_li)
+
+            print(f"Foram encontradas {total_propostas} propostas na sua conta.")
+
+            for i in range(1, total_propostas + 1):
+                # O XPath desce no 'li' específico e procura a tag 'a' que guarda o título
+                xpath_titulo_proposta = f"{xpath_ul}/li[{i}]//a"
+
+                if driver.is_element_present(xpath_titulo_proposta):
+                    titulo = driver.get_text(xpath_titulo_proposta).strip()
+                    if titulo:
+                        titulos_salvos.append(titulo)
+
+            print(
+                f"Histórico salvo na memória: {len(titulos_salvos)} títulos mapeados e guardados."
+            )
+        else:
+            print(
+                "Aviso: A lista de 'minhas-propostas' está vazia ou não foi encontrada."
+            )
+
+    except Exception as e:
+        print(f"Aviso ao raspar histórico de propostas: {e}")
+
+    return titulos_salvos
+
+
+def validar_por_regex(texto, dicionario_filtros):
+    """
+    Verifica se o texto contém alguma das palavras-chave do dicionário usando Regex.
+    """
+    if not texto:
+        return False
+
+    # Junta todas as palavras-chave de todas as categorias em uma única lista
+    todas_palavras = []
+    for palavras in dicionario_filtros.values():
+        todas_palavras.extend(palavras)
+
+    # Cria a regra Regex:
+    # (?i) -> Ignora maiúsculas e minúsculas (case-insensitive)
+    # \b   -> Word boundary (garante que ache 'bot' e não 'boteco' ou 'sabotagem')
+    # re.escape -> Protege contra caracteres especiais (como espaços)
+    padrao = r"(?i)\b(?:" + "|".join(map(re.escape, todas_palavras)) + r")\b"
+
+    # Se encontrar alguma palavra no texto, retorna True
+    if re.search(padrao, texto):
+        return True
+
+    return False
+
+
+def executar_bot():
+    email = os.getenv("EMAIL_99FREELAS")
+    senha = os.getenv("SENHA_99FREELAS")
+
+    print("Iniciando o bot e fazendo login...")
+    with SB(uc=True, xvfb=True) as driver:
+        login_sucesso = iniciar_navegador(driver, email, senha)
+
+        if not login_sucesso:
+            print("Erro crítico: Não foi possível iniciar o navegador ou fazer login.")
+            return
+
+        else:
+            time.sleep(3)
+
+            # NOVO: Alimenta a lista de controle buscando direto no seu painel de propostas enviadas
+            projetos_enviados = raspar_propostas_ja_enviadas(driver)
+
+            # 1. LOOP DE FILTROS
+            filtros = {
+                "data_science_ml": [
+                    "ciência de dados",
+                    "data science",
+                    "machine learning",
+                    "aprendizado de máquina",
+                    "python",
+                    "nlp",
+                    "visão computacional",
+                ],
+                "automacao_bots": [
+                    "Automat",
+                    "automação",
+                    "automatizar",
+                    "bot",
+                    "robo",
+                    "telegram bot",
+                    "whatsapp bot",
+                    "selenium",
+                    "puppeteer",
+                    "rpa",
+                ],
+                "web_scraping": [
+                    "web scraping",
+                    "scraper",
+                    "raspagem de dados",
+                    "extração de dados",
+                    "coleta de dados",
+                    "api",
+                ],
+                "banco_dados_bi": [
+                    "power bi",
+                    "dashboard",
+                    "looker",
+                    "banco de dados",
+                    "sql",
+                    "mysql",
+                    "postgresql",
+                ],
+            }
+
+            # LOOP DAS CATEGORIAS (Chaves do Dicionário)
+            for categoria, palavras_chave in filtros.items():
+                print(f"\n====================================================")
+                print(f"ABRINDO CATEGORIA: {categoria.upper()}")
+                print(f"====================================================")
+
+                # LOOP DAS PALAVRAS-CHAVE (Valores das listas)
+                for filtro in palavras_chave:
+                    print(f"\n   >>> Iniciando buscas para o termo: '{filtro}' <<<")
+
+                    # Aplica a palavra-chave atual na barra de pesquisa
+                    time.sleep(3)
+                    navegar_para_automacao(driver, filtro)
+                    driver.sleep(3)
+
+                    # 2. LOOP DE PAGINAÇÃO (Limitado da página 1 até a página 10)
+                    for pagina in range(1, 60):
+                        print(
+                            f"\n--- Lendo Projetos da Página {pagina} (Filtro: {filtro}) ---"
+                        )
+
+                        # 3. LOOP DE PROJETOS (Lê do 1 ao 10 na página atual)
+                        for num in range(1, 11):
+                            try:
+                                # Xpath do título do projeto na listagem principal de busca
+                                xpath_titulo = f"/html/body/div[1]/div[3]/div[3]/ul/li[{num}]/hgroup/h1/a"
+
+                                if not driver.is_element_present(xpath_titulo):
+                                    continue
+
+                                # Captura o título do projeto que está na lista de buscas
+                                titulo_projeto = driver.get_text(xpath_titulo).strip()
+
+                                # VERIFICAÇÃO 1: Se o título capturado já está na lista
+                                if titulo_projeto in projetos_enviados:
+                                    print(
+                                        f"O projeto {num} ('{titulo_projeto}') já recebeu uma proposta sua (Detectado no Histórico). Pulando..."
+                                    )
+                                    continue
+
+                                # VERIFICAÇÃO 2: Se o projeto é exclusivo
+                                time.sleep(1)
+                                if eh_projeto_exclusivo(driver, num):
+                                    print(
+                                        f"O projeto {num} é EXCLUSIVO. Pulando para o próximo..."
+                                    )
+                                    continue
+
+                                # Se passou nos testes, abre o projeto e extrai a descrição
+                                descricao = obter_descricao_projeto(driver, num)
+
+                                # if descricao == False:
+                                # print(
+                                # f"Descrição do projeto {num} não encontrada. Pulando..."
+                                # )
+                                # voltar_para_lista_de_projetos(
+                                # driver
+                                # )  # Adicionado para evitar que o bot fique preso
+                                # continue
+
+                                # =================================================================
+                                # VERIFICAÇÃO 3 (NOVA): Validação via REGEX no Título + Descrição
+                                # =================================================================
+                                texto_analise = f"{titulo_projeto} {descricao}"
+                                if not validar_por_regex(texto_analise, filtros):
+                                    print(
+                                        f"Falso positivo do 99Freelas! O projeto '{titulo_projeto}' não contém as palavras-chave reais. Pulando..."
+                                    )
+                                    voltar_para_lista_de_projetos(driver)
+                                    continue
+                                # =================================================================
+                                obter_descricao_projeto(
+                                    driver, num
+                                )  # Reabre o projeto para garantir que estamos na aba certa
+
+                                # 3.3 Gera a proposta com o Gemini
+                                print(
+                                    f"Gerando proposta personalizada para o projeto: {titulo_projeto}..."
+                                )
+                                texto_proposta, tempo_gemini = gerar_proposta_gemini(
+                                    driver, descricao
+                                )
+
+                                # 3.4 Envia a proposta no 99Freelas
+                                enviar_proposta_99freelas(
+                                    driver, texto_proposta, tempo_gemini
+                                )
+                                projetos_enviados.append(titulo_projeto)
+                                print(
+                                    "Proposta finalizada. Retornando à página de busca..."
+                                )
+
+                                # PAUSA DE SEGURANÇA
+                                print(
+                                    "Aguardando 10 segundos antes do próximo projeto (Limitação do Gemini)..."
+                                )
+                                driver.sleep(10)
+
+                                voltar_para_lista_de_projetos(driver)
+
+                            except Exception as e:
+                                print(
+                                    f"Erro inesperado ao processar o projeto {num} da página {pagina}: {e}"
+                                )
+                                voltar_para_lista_de_projetos(driver)
+
+                        # 4. TRANSIÇÃO DE PÁGINA
+                        if pagina < 60:
+                            proxima_pagina = pagina + 1
+
+                            # NOVA LÓGICA: Procura qualquer elemento na barra de paginação que tenha EXATAMENTE o número da próxima página.
+                            xpath_proxima_pagina = f"/html/body/div[1]/div[3]/div[3]/div[1]/div[2]//*[normalize-space(text())='{proxima_pagina}']"
+
+                            time.sleep(2)
+
+                            print(
+                                f"Finalizou a página {pagina}. Tentando ir para a página {proxima_pagina}..."
+                            )
+                            try:
+                                time.sleep(2)
+                                voltar_para_lista_de_projetos(driver)
+
+                                if driver.is_element_present(xpath_proxima_pagina):
+                                    time.sleep(1)
+
+                                    # Rola a tela até o botão de paginação para garantir que ele seja clicável
+                                    driver.scroll_to(xpath_proxima_pagina)
+                                    driver.sleep(1)
+
+                                    # Clica exatamente no número
+                                    driver.click(xpath_proxima_pagina)
+                                    print(f"Carregando a página {proxima_pagina}...")
+                                    driver.sleep(4)
+                                else:
+                                    print(
+                                        f"Botão da página {proxima_pagina} não encontrado. As páginas deste filtro acabaram."
+                                    )
+                                    break
+
+                            except Exception as e:
+                                print(
+                                    f"Erro ao tentar mudar para a página {proxima_pagina}: {e}"
+                                )
+                                break
+
+            print(
+                "\n✅ Execução do bot finalizada com sucesso! Todos os filtros e páginas foram processados."
+            )
+
+
+# ==========================================
+# Gatilho de execução do script
+# ==========================================
+if __name__ == "__main__":
+    executar_bot()
+

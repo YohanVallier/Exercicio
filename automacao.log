@@ -1,0 +1,235 @@
+2026-07-21 14:47:00,844 - FreelancerBot - INFO - === Iniciando a automação do Freelancer.com.br ===
+2026-07-21 14:47:00,845 - FreelancerBot - INFO - Iniciando Etapa 1: Autenticação no sistema...
+2026-07-21 14:47:00,845 - root - INFO - Iniciando o navegador e acessando a página...
+2026-07-21 14:47:06,208 - root - INFO - open() in UC Mode now always activates CDP Mode.
+2026-07-21 14:47:09,404 - root - INFO - Abrindo o formulário de login...
+2026-07-21 14:47:14,631 - root - INFO - Preenchendo as credenciais...
+2026-07-21 14:47:15,215 - root - INFO - Submetendo o formulário...
+2026-07-21 14:47:20,759 - root - INFO - Login executado com sucesso!
+2026-07-21 14:47:21,190 - FreelancerBot - INFO - Etapa 1 concluída: Login realizado com sucesso.
+2026-07-21 14:47:21,191 - FreelancerBot - INFO - === Automação finalizada com sucesso! ===
+2026-07-21 14:47:58,813 - FreelancerBot - INFO - === Iniciando a automação do Freelancer.com.br ===
+2026-07-21 14:47:58,813 - FreelancerBot - INFO - Iniciando Etapa 1: Autenticação no sistema...
+2026-07-21 14:47:58,814 - root - INFO - Iniciando o navegador e acessando a página...
+2026-07-21 14:48:00,330 - root - INFO - open() in UC Mode now always activates CDP Mode.
+2026-07-21 14:48:03,025 - root - INFO - Abrindo o formulário de login...
+2026-07-21 14:48:06,632 - root - INFO - Preenchendo as credenciais...
+2026-07-21 14:48:07,304 - root - INFO - Submetendo o formulário...
+2026-07-21 14:48:12,849 - root - INFO - Login executado com sucesso!
+2026-07-21 14:48:13,247 - FreelancerBot - INFO - Etapa 1 concluída: Login realizado com sucesso.
+2026-07-21 14:48:13,247 - FreelancerBot - INFO - === Automação finalizada com sucesso! ===
+2026-07-21 15:02:41,616 - FreelancerBot - INFO - === Iniciando a automação do Freelancer.com.br ===
+2026-07-21 15:02:43,236 - FreelancerBot - INFO - Etapa 1: Iniciando o módulo de Autenticação...
+2026-07-21 15:02:43,237 - root - INFO - open() in UC Mode now always activates CDP Mode.
+2026-07-21 15:02:53,592 - FreelancerBot - INFO - Etapa 1 concluída: Usuário autenticado.
+2026-07-21 15:02:53,593 - FreelancerBot - INFO - Etapa 2: Iniciando filtros e busca por termos...
+2026-07-21 15:02:53,593 - FreelancerBot.Scraper - INFO - Iniciando configuração de categorias...
+2026-07-21 15:02:53,594 - FreelancerBot.Scraper - ERROR - Erro ao aplicar filtros ou pesquisar: Expected an argument, got <DELIM ':' at 24>
+Traceback (most recent call last):
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_freelas.com/scraper.py", line 232, in aplicar_filtros_e_buscar_projetos
+    sb.wait_for_element(seletor_dropdown)
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/fixtures/base_case.py", line 10387, in wait_for_element
+    selector, by = self.__recalculate_selector(selector, by)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/fixtures/base_case.py", line 14752, in __recalculate_selector
+    return page_utils.recalculate_selector(selector, by, xp_ok=xp_ok)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/fixtures/page_utils.py", line 91, in recalculate_selector
+    selector = css_to_xpath.convert_css_to_xpath(selector)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/fixtures/css_to_xpath.py", line 56, in convert_css_to_xpath
+    xpath = ConvertibleToCssTranslator().css_to_xpath(css)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/fixtures/css_to_xpath.py", line 12, in css_to_xpath
+    return super().css_to_xpath(css, prefix)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/cssselect/xpath.py", line 224, in css_to_xpath
+    for selector in parse(css)
+                    ^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/cssselect/parser.py", line 529, in parse
+    return list(parse_selector_group(stream))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/cssselect/parser.py", line 544, in parse_selector_group
+    yield Selector(*parse_selector(stream))
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/cssselect/parser.py", line 553, in parse_selector
+    result, pseudo_element = parse_simple_selector(stream)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/cssselect/parser.py", line 672, in parse_simple_selector
+    combinator, arguments = parse_relative_selector(stream)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/cssselect/parser.py", line 728, in parse_relative_selector
+    raise SelectorSyntaxError(f"Expected an argument, got {next_}")
+cssselect.parser.SelectorSyntaxError: Expected an argument, got <DELIM ':' at 24>
+2026-07-21 15:02:54,504 - FreelancerBot - INFO - === Execução finalizada ===
+2026-07-21 15:04:51,611 - FreelancerBot - INFO - === Iniciando a automação do Freelancer.com.br ===
+2026-07-21 15:04:53,390 - FreelancerBot - INFO - Etapa 1: Iniciando o módulo de Autenticação...
+2026-07-21 15:04:53,391 - root - INFO - open() in UC Mode now always activates CDP Mode.
+2026-07-21 15:05:03,361 - FreelancerBot - INFO - Etapa 1 concluída: Usuário autenticado.
+2026-07-21 15:05:03,361 - FreelancerBot - INFO - Etapa 2: Iniciando filtros e busca por termos...
+2026-07-21 15:05:03,361 - FreelancerBot.Scraper - INFO - Iniciando configuração de categorias...
+2026-07-21 15:05:03,362 - FreelancerBot.Scraper - ERROR - Erro ao aplicar filtros ou pesquisar: Expected an argument, got <DELIM ':' at 24>
+Traceback (most recent call last):
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_freelas.com/scraper.py", line 232, in aplicar_filtros_e_buscar_projetos
+    sb.wait_for_element(seletor_dropdown)
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/fixtures/base_case.py", line 10387, in wait_for_element
+    selector, by = self.__recalculate_selector(selector, by)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/fixtures/base_case.py", line 14752, in __recalculate_selector
+    return page_utils.recalculate_selector(selector, by, xp_ok=xp_ok)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/fixtures/page_utils.py", line 91, in recalculate_selector
+    selector = css_to_xpath.convert_css_to_xpath(selector)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/fixtures/css_to_xpath.py", line 56, in convert_css_to_xpath
+    xpath = ConvertibleToCssTranslator().css_to_xpath(css)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/fixtures/css_to_xpath.py", line 12, in css_to_xpath
+    return super().css_to_xpath(css, prefix)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/cssselect/xpath.py", line 224, in css_to_xpath
+    for selector in parse(css)
+                    ^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/cssselect/parser.py", line 529, in parse
+    return list(parse_selector_group(stream))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/cssselect/parser.py", line 544, in parse_selector_group
+    yield Selector(*parse_selector(stream))
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/cssselect/parser.py", line 553, in parse_selector
+    result, pseudo_element = parse_simple_selector(stream)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/cssselect/parser.py", line 672, in parse_simple_selector
+    combinator, arguments = parse_relative_selector(stream)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/cssselect/parser.py", line 728, in parse_relative_selector
+    raise SelectorSyntaxError(f"Expected an argument, got {next_}")
+cssselect.parser.SelectorSyntaxError: Expected an argument, got <DELIM ':' at 24>
+2026-07-21 15:05:04,257 - FreelancerBot - INFO - === Execução finalizada ===
+2026-07-21 15:06:47,242 - FreelancerBot - INFO - === Iniciando a automação do Freelancer.com.br ===
+2026-07-21 15:06:48,838 - FreelancerBot - INFO - Etapa 1: Iniciando o módulo de Autenticação...
+2026-07-21 15:06:48,839 - root - INFO - open() in UC Mode now always activates CDP Mode.
+2026-07-21 15:06:58,906 - FreelancerBot - INFO - Etapa 1 concluída: Usuário autenticado.
+2026-07-21 15:06:58,906 - FreelancerBot - INFO - Etapa 2: Iniciando filtros e busca por termos...
+2026-07-21 15:06:58,906 - FreelancerBot.Scraper - INFO - Iniciando configuração de categorias...
+2026-07-21 15:07:08,977 - FreelancerBot.Scraper - ERROR - Erro ao aplicar filtros ou pesquisar: 
+ Element {//label[text()="Categoria"]/following-sibling::div//div[contains(@class, "select-field")]} was not found after 10 seconds!
+Traceback (most recent call last):
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_freelas.com/scraper.py", line 229, in aplicar_filtros_e_buscar_projetos
+    sb.wait_for_element(seletor_dropdown)
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/fixtures/base_case.py", line 10389, in wait_for_element
+    return self.cdp.select(selector, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/core/sb_cdp.py", line 431, in select
+    raise Exception(message)
+Exception: 
+ Element {//label[text()="Categoria"]/following-sibling::div//div[contains(@class, "select-field")]} was not found after 10 seconds!
+2026-07-21 15:07:10,091 - FreelancerBot - INFO - === Execução finalizada ===
+2026-07-21 15:08:39,111 - FreelancerBot - INFO - === Iniciando a automação do Freelancer.com.br ===
+2026-07-21 15:08:40,876 - FreelancerBot - INFO - Etapa 1: Iniciando o módulo de Autenticação...
+2026-07-21 15:08:40,877 - root - INFO - open() in UC Mode now always activates CDP Mode.
+2026-07-21 15:08:51,013 - FreelancerBot - INFO - Etapa 1 concluída: Usuário autenticado.
+2026-07-21 15:08:51,013 - FreelancerBot - INFO - Etapa 2: Iniciando filtros e busca por termos...
+2026-07-21 15:08:51,014 - FreelancerBot.Scraper - INFO - Iniciando configuração de categorias...
+2026-07-21 15:08:53,602 - FreelancerBot.Scraper - INFO - Expandindo a categoria pai: Website and Apps
+2026-07-21 15:08:54,729 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: Web Applications
+2026-07-21 15:09:01,829 - FreelancerBot.Scraper - ERROR - Erro ao aplicar filtros ou pesquisar: 
+ Element {//span[contains(@class, "text") and normalize-space(text())="Web Applications"]} was not found after 7 seconds!
+Traceback (most recent call last):
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_freelas.com/scraper.py", line 242, in aplicar_filtros_e_buscar_projetos
+    sb.click(xpath_sub)
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/fixtures/base_case.py", line 418, in click
+    self.cdp.click(selector, timeout=timeout, scroll=scroll)
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/core/sb_cdp.py", line 863, in click
+    element = self.find_element(selector, timeout=timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/core/sb_cdp.py", line 314, in find_element
+    raise Exception(message)
+Exception: 
+ Element {//span[contains(@class, "text") and normalize-space(text())="Web Applications"]} was not found after 7 seconds!
+2026-07-21 15:09:03,835 - FreelancerBot - INFO - === Execução finalizada ===
+2026-07-21 15:09:08,180 - FreelancerBot - INFO - === Iniciando a automação do Freelancer.com.br ===
+2026-07-21 15:09:09,893 - FreelancerBot - INFO - Etapa 1: Iniciando o módulo de Autenticação...
+2026-07-21 15:09:09,894 - root - INFO - open() in UC Mode now always activates CDP Mode.
+2026-07-21 15:09:20,360 - FreelancerBot - INFO - Etapa 1 concluída: Usuário autenticado.
+2026-07-21 15:09:20,361 - FreelancerBot - INFO - Etapa 2: Iniciando filtros e busca por termos...
+2026-07-21 15:09:20,361 - FreelancerBot.Scraper - INFO - Iniciando configuração de categorias...
+2026-07-21 15:09:22,191 - FreelancerBot.Scraper - INFO - Expandindo a categoria pai: Website and Apps
+2026-07-21 15:09:23,277 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: Web Applications
+2026-07-21 15:09:30,395 - FreelancerBot.Scraper - ERROR - Erro ao aplicar filtros ou pesquisar: 
+ Element {//span[contains(@class, "text") and normalize-space(text())="Web Applications"]} was not found after 7 seconds!
+Traceback (most recent call last):
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_freelas.com/scraper.py", line 242, in aplicar_filtros_e_buscar_projetos
+    sb.click(xpath_sub)
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/fixtures/base_case.py", line 418, in click
+    self.cdp.click(selector, timeout=timeout, scroll=scroll)
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/core/sb_cdp.py", line 863, in click
+    element = self.find_element(selector, timeout=timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yohan-vallier/Documents/GitHub/coletor_de_dados_99_freelas/.venv/lib/python3.12/site-packages/seleniumbase/core/sb_cdp.py", line 314, in find_element
+    raise Exception(message)
+Exception: 
+ Element {//span[contains(@class, "text") and normalize-space(text())="Web Applications"]} was not found after 7 seconds!
+2026-07-21 15:09:31,158 - FreelancerBot - INFO - === Execução finalizada ===
+2026-07-21 15:11:29,173 - FreelancerBot - INFO - === Iniciando a automação do Freelancer.com.br ===
+2026-07-21 15:11:30,962 - FreelancerBot - INFO - Etapa 1: Iniciando o módulo de Autenticação...
+2026-07-21 15:11:30,963 - root - INFO - open() in UC Mode now always activates CDP Mode.
+2026-07-21 15:11:40,812 - FreelancerBot - INFO - Etapa 1 concluída: Usuário autenticado.
+2026-07-21 15:11:40,812 - FreelancerBot - INFO - Etapa 2: Iniciando filtros e busca por termos...
+2026-07-21 15:11:40,812 - FreelancerBot.Scraper - INFO - Iniciando configuração de categorias...
+2026-07-21 15:11:42,623 - FreelancerBot.Scraper - INFO - Expandindo a categoria pai: Website and Apps
+2026-07-21 15:11:44,241 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: Web Applications
+2026-07-21 15:11:45,164 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: Back-end Development
+2026-07-21 15:11:46,105 - FreelancerBot.Scraper - INFO - Expandindo a categoria pai: Software and systems
+2026-07-21 15:11:47,686 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: System Administration
+2026-07-21 15:11:48,567 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: Machine Learning
+2026-07-21 15:11:49,502 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: Web Analytics
+2026-07-21 15:11:50,408 - FreelancerBot.Scraper - INFO - Expandindo a categoria pai: Techniek en Science
+2026-07-21 15:11:51,996 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: Programming
+2026-07-21 15:11:54,101 - FreelancerBot.Scraper - INFO - Categorias configuradas com sucesso. Iniciando looping de termos...
+2026-07-21 15:11:54,102 - FreelancerBot.Scraper - INFO - [1/179] Pesquisando por: 'python'
+2026-07-21 15:11:57,950 - FreelancerBot.Scraper - INFO - [2/179] Pesquisando por: 'javascript'
+2026-07-21 15:12:01,821 - FreelancerBot.Scraper - INFO - [3/179] Pesquisando por: 'typescript'
+2026-07-21 15:12:07,121 - FreelancerBot.Scraper - INFO - [4/179] Pesquisando por: 'java'
+2026-07-21 15:15:10,303 - FreelancerBot - INFO - === Iniciando a automação do Freelancer.com.br ===
+2026-07-21 15:15:12,046 - FreelancerBot - INFO - Etapa 1: Iniciando o módulo de Autenticação...
+2026-07-21 15:15:12,047 - root - INFO - open() in UC Mode now always activates CDP Mode.
+2026-07-21 15:15:26,166 - FreelancerBot - INFO - Etapa 1 concluída: Usuário autenticado.
+2026-07-21 15:15:26,166 - FreelancerBot - INFO - Etapa 2: Iniciando filtros e busca por termos...
+2026-07-21 15:15:26,166 - FreelancerBot.Scraper - INFO - Iniciando configuração de categorias...
+2026-07-21 15:15:27,972 - FreelancerBot.Scraper - INFO - Expandindo a categoria pai: Website and Apps
+2026-07-21 15:15:29,564 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: Web Applications
+2026-07-21 15:15:30,505 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: Back-end Development
+2026-07-21 15:15:31,554 - FreelancerBot.Scraper - INFO - Expandindo a categoria pai: Software and systems
+2026-07-21 15:15:33,222 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: System Administration
+2026-07-21 15:15:34,114 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: Machine Learning
+2026-07-21 15:15:34,993 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: Web Analytics
+2026-07-21 15:15:35,910 - FreelancerBot.Scraper - INFO - Expandindo a categoria pai: Techniek en Science
+2026-07-21 15:15:37,539 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: Programming
+2026-07-21 15:15:39,637 - FreelancerBot.Scraper - INFO - Categorias configuradas com sucesso. Preparando string unificada de pesquisa...
+2026-07-21 15:15:39,638 - FreelancerBot.Scraper - INFO - Inserindo 179 termos simultaneamente no campo de busca.
+2026-07-21 15:15:43,759 - FreelancerBot.Scraper - INFO - Clicando no botão 'Pesquisar projetos'...
+2026-07-21 15:15:48,329 - FreelancerBot.Scraper - INFO - Pesquisa unificada concluída com sucesso.
+2026-07-21 15:15:48,329 - FreelancerBot - INFO - Etapa 2 concluída: Processo de busca finalizado.
+2026-07-21 15:15:48,922 - FreelancerBot - INFO - === Execução finalizada ===
+2026-07-21 15:17:04,377 - FreelancerBot - INFO - === Iniciando a automação do Freelancer.com.br ===
+2026-07-21 15:17:06,056 - FreelancerBot - INFO - Etapa 1: Iniciando o módulo de Autenticação...
+2026-07-21 15:17:06,057 - root - INFO - open() in UC Mode now always activates CDP Mode.
+2026-07-21 15:17:16,175 - FreelancerBot - INFO - Etapa 1 concluída: Usuário autenticado.
+2026-07-21 15:17:16,175 - FreelancerBot - INFO - Etapa 2: Iniciando filtros e busca por termos...
+2026-07-21 15:17:16,175 - FreelancerBot.Scraper - INFO - Iniciando configuração de categorias...
+2026-07-21 15:17:17,956 - FreelancerBot.Scraper - INFO - Expandindo a categoria pai: Website and Apps
+2026-07-21 15:17:19,547 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: Web Applications
+2026-07-21 15:17:20,478 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: Back-end Development
+2026-07-21 15:17:21,445 - FreelancerBot.Scraper - INFO - Expandindo a categoria pai: Software and systems
+2026-07-21 15:17:23,044 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: System Administration
+2026-07-21 15:17:23,967 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: Machine Learning
+2026-07-21 15:17:24,854 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: Web Analytics
+2026-07-21 15:17:25,774 - FreelancerBot.Scraper - INFO - Expandindo a categoria pai: Techniek en Science
+2026-07-21 15:17:27,372 - FreelancerBot.Scraper - INFO - Selecionando subcategoria: Programming
+2026-07-21 15:17:29,456 - FreelancerBot.Scraper - INFO - Categorias configuradas com sucesso. Preparando string unificada de pesquisa...
+2026-07-21 15:17:29,457 - FreelancerBot.Scraper - INFO - Inserindo 179 termos simultaneamente no campo de busca.
+2026-07-21 15:17:33,558 - FreelancerBot.Scraper - INFO - Clicando no botão 'Pesquisar projetos'...
+2026-07-21 15:17:38,116 - FreelancerBot.Scraper - INFO - Pesquisa unificada concluída com sucesso.
+2026-07-21 15:17:38,116 - FreelancerBot - INFO - Etapa 2 concluída: Processo de busca finalizado.
+2026-07-21 15:19:28,370 - FreelancerBot - INFO - === Execução finalizada ===
