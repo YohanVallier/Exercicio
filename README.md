@@ -1,12 +1,12 @@
 # Coleção de Estudos e Projetos
 
-Este repositório serve como um portfólio e arquivo de projetos, exercícios e anotações desenvolvidos durante cursos e estudos em diversas plataformas como Alura, Casa do Código, Curso em Vídeo, Udemy e Hashtag Treinamentos.
+Este repositório serve como um arquivo de projetos, exercícios e anotações desenvolvidos durante cursos e estudos em diversas plataformas como Alura, Casa do Código, Curso em Vídeo, Udemy e Hashtag Treinamentos.
 
 ## Sumário
 - [Estrutura do Repositório](#estrutura-do-repositório)
 - [Linguagens e Conteúdo](#linguagens-e-conteúdo)
   - [Python](#python)
-  - [HTML & CSS](#html--css)
+  - [HTML & CSS](#html--css)portfólio e
   - [JavaScript](#javascript)
 - [Dados](#dados)
 - [Tecnologias, Frameworks e Bibliotecas](#tecnologias-frameworks-e-bibliotecas)
