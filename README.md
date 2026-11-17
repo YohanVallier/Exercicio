@@ -5,9 +5,9 @@ Este repositório serve como um arquivo de projetos, exercícios e anotações d
 ## Sumário
 - [Estrutura do Repositório](#estrutura-do-repositório)
 - [Linguagens e Conteúdo](#linguagens-e-conteúdo)
-  - [Python](#python)
-  - [HTML & CSS](#html--css)portfólio e
-  - [JavaScript](#javascript)
+- [Python](#python)
+- [HTML & CSS](#html--css)
+- [JavaScript](#javascript)
 - [Dados](#dados)
 - [Tecnologias, Frameworks e Bibliotecas](#tecnologias-frameworks-e-bibliotecas)
 - [Miscelânea](#miscelânea)
