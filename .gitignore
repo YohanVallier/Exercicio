@@ -4,7 +4,8 @@ node_modules/
 venv/
 __pycache__/
 *.class
-*.jar
-target/
 .env
 *.log
+*.tmp.js
+.ipynb_checkpoints/
+._*

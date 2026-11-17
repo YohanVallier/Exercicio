@@ -1,163 +1,206 @@
-# Repositório Multifuncional de Projetos Diversos
+# Coleção de Estudos e Projetos
 
-Este repositório é uma coleção organizada de vários projetos de software, abrangendo diversas linguagens de programação, frameworks e propósitos. Ele demonstra a capacidade de desenvolver soluções em áreas como desenvolvimento web (frontend e backend), análise de dados, automação e aplicações de linha de comando.
+Este repositório serve como um compêndio de estudos, exercícios e mini-projetos desenvolvidos ao longo de diversos cursos e plataformas de aprendizado. Ele abrange uma variedade de linguagens de programação e tecnologias web, organizados por origem do material e tipo de conteúdo.
 
 ## Estrutura do Repositório
 
-O repositório foi reestruturado para facilitar a navegação e a gestão dos diferentes projetos, organizando-os por linguagem e framework/propósito:
+O repositório está organizado nas seguintes pastas principais:
 
+*   **`Casa do Código/`**
+    *   `Casa do Código/dados/`
+        *   `Casa do Código/dados/data/`
+            *   `Casa do Código/dados/data/data/`
+*   **`Curso em Vídeo/`**
+    *   `Curso em Vídeo/Projeto Android/`
+        *   `Curso em Vídeo/Projeto Android/image/`
+*   **`data/`**
+    *   `data/casa-do-codigo/`
+        *   `data/casa-do-codigo/meta-data/`
+    *   `data/hashtag-treinamentos/`
+*   **`javascript/`**
+    *   `javascript/curso-em-video/`
+        *   `javascript/curso-em-video/exercises/`
+    *   `javascript/udemy/`
+        *   `javascript/udemy/web-moderno/`
+            *   `javascript/udemy/web-moderno/array/`
+                *   `javascript/udemy/web-moderno/array/exercises/`
+            *   `javascript/udemy/web-moderno/function/`
+*   **`logs/`**
+*   **`misc/`**
+*   **`python/`**
+    *   `python/alura/`
+        *   `python/alura/data-science/`
+    *   `python/casa-do-codigo/`
+    *   `python/curso-em-video/`
+    *   `python/gemini-exercises/`
+    *   `python/hashtag-treinamentos/`
+        *   `python/hashtag-treinamentos/notebooks/`
+*   **`temp/`**
+*   **`web/`**
+    *   `web/alura/`
+        *   `web/alura/alura-plus/`
+            *   `web/alura/alura-plus/img/`
+        *   `web/alura/portfolio/`
+            *   `web/alura/portfolio/assets/`
+            *   `web/alura/portfolio/styles/`
+    *   `web/curso-em-video/`
+        *   `web/curso-em-video/android-project/`
+            *   `web/curso-em-video/android-project/fonts/`
+            *   `web/curso-em-video/android-project/image/`
+            *   `web/curso-em-video/android-project/style/`
+        *   `web/curso-em-video/cordel-project/`
+            *   `web/curso-em-video/cordel-project/images/`
+            *   `web/curso-em-video/cordel-project/style/`
+        *   `web/curso-em-video/exercises/`
+            *   `web/curso-em-video/exercises/ex001/`
+                *   `web/curso-em-video/exercises/ex001/imagens/`
+                *   `web/curso-em-video/exercises/ex001/script/`
+                *   `web/curso-em-video/exercises/ex001/style/`
+            *   `web/curso-em-video/exercises/ex002/`
+                *   `web/curso-em-video/exercises/ex002/imagens/`
+                *   `web/curso-em-video/exercises/ex002/script/`
+                *   `web/curso-em-video/exercises/ex002/style/`
+            *   `web/curso-em-video/exercises/ex003/`
+                *   `web/curso-em-video/exercises/ex003/script/`
+                *   `web/curso-em-video/exercises/ex003/style/`
+            *   `web/curso-em-video/exercises/ex004/`
+                *   `web/curso-em-video/exercises/ex004/script/`
+                *   `web/curso-em-video/exercises/ex004/style/`
+            *   `web/curso-em-video/exercises/ex005/`
+                *   `web/curso-em-video/exercises/ex005/script/`
+                *   `web/curso-em-video/exercises/ex005/style/`
+        *   `web/curso-em-video/login-project/`
+            *   `web/curso-em-video/login-project/image/`
+            *   `web/curso-em-video/login-project/style/`
+        *   `web/curso-em-video/simple-exercises/`
+        *   `web/curso-em-video/video-project/`
+            *   `web/curso-em-video/video-project/midia/`
+            *   `web/curso-em-video/video-project/style/`
 
-.
-├── data/
-├── docs/
-├── java/
-│   ├── cli/
-│   └── spring-boot/
-├── javascript/
-│   └── react/
-├── python/
-│   ├── data-analysis/
-│   ├── flask/
-│   └── web-scraper/
-├── shell/
-│   └── scripts/
-└── web/
-    └── html-css-js-vanilla/
-
-
-## Projetos Detalhados
-
-Abaixo, uma descrição de cada projeto incluído neste repositório:
-
-### Java
-
-*   **`java/spring-boot/projeto_spring_api`**
-    Uma API RESTful robusta desenvolvida com o framework Spring Boot. Este projeto demonstra a construção de um backend para gerenciamento de produtos, incluindo controllers para lidar com requisições HTTP, models para a representação de dados, repositories para interação com o banco de dados e serviços para a lógica de negócio. Utiliza Maven para gerenciamento de projeto e dependências.
-
-*   **`java/cli/java_cli_app`**
-    Uma aplicação Java simples de linha de comando. Este projeto serve como um exemplo básico de como desenvolver programas executáveis diretamente do terminal, organizando o código em classes e utilitários. Também utiliza Maven para gerenciamento de dependências e construção do projeto.
+## Conteúdo por Linguagem
 
 ### Python
 
-*   **`python/data-analysis/python_data_analysis`**
-    Um projeto Python focado em análise de dados. Contém scripts principais (`main.py`) para executar tarefas de análise e processamento, bem como módulos de utilitários (`utils.py`) para funções auxiliares. Inclui um arquivo `sample.csv` para dados de exemplo, demonstrando manipulação de dados em um contexto real.
+A seção Python (`python/`) contém uma vasta gama de scripts e notebooks Jupyter (`.ipynb`) cobrindo desde fundamentos até tópicos mais avançados de ciência de dados e automação.
 
-*   **`python/web-scraper/python_web_scraper`**
-    Um web scraper desenvolvido em Python para extração automática de informações da web. O projeto é composto por um script principal (`scraper.py`) e um arquivo de configuração (`config.py`) para gerenciar parâmetros como URLs e seletores. Ideal para coleta de dados de sites.
-
-*   **`python/flask/python_flask_app`**
-    Uma aplicação web leve criada com o micro-framework Flask. Este projeto ilustra o desenvolvimento de uma interface web simples, incluindo um arquivo `app.py` para as rotas e lógica do servidor, templates HTML (`index.html`) para a renderização de páginas e arquivos CSS estáticos (`style.css`) para o estilo visual.
+*   **`python/alura/data-science/`**: Notebooks Jupyter com exercícios e projetos focados em Data Science.
+    *   `hora-da-pratica.ipynb`
+    *   `sorteio-de-pessoas.ipynb`
+    *   `teste.ipynb`
+*   **`python/casa-do-codigo/`**: Scripts Python e notebooks relacionados aos materiais da Casa do Código.
+    *   `download-arquivo-internet.py`
+    *   `estrutura-de-dados-2.ipynb`
+    *   `estrutura-de-leitura-de-dados.ipynb`
+    *   `leitor-arquivos.py`
+    *   `teste.py`
+*   **`python/curso-em-video/`**: Uma série de exercícios práticos em Python do Curso em Vídeo.
+    *   `exercicio001.py`, `exercicio002.py`, `exercicio003.py`, `exercicio004.py`, `exercicio005.py`, `exercicio006.py`, `exercicio007.py`, `exercicio008.py`, `exercicio009.py`, `exercicio010.py`, `exercicio011.py`, `exercicio012.py`, `exercicio013.py`, `exercicio014.py`, `exercicio015.py`, `exercicio016.py`, `exercicio017.py`, `exercicio018.py`, `exercicio019.py`, `exercicio020.py`, `exercicio021.py`, `exercicio022.py`, `exercicio023.py`, `exercicio024.py`, `exercicio025.py`, `exercicio026.py`, `exercicio027.py`, `exercicio028.py`, `exercicio029.py`, `exercicio030.py`, `exercicio031.py`, `exercicio032.py`, `exercicio033.py`, `exercicio034.py`, `exercicio035.py`, `exercicio036.py`, `exercicio037.py`, `exercicio038.py`, `exercicio039.py`, `exercicio040.py`, `exercicio041.py`, `exercicio042.py`, `exercicio043.py`, `exercicio044.py`, `exercicio045.py`, `exercicio046.py`, `exercicio047.py`, `exercicio048.py`, `exercicio049.py`, `exercicio050.py`, `exercicio051.py`, `exercicio052.py`, `exercicio053.py`, `exercicio054.py`, `exercicio055.py`, `exercicio056.py`, `exercicio057.py`, `exercicio058.py`, `exercicio059.py`, `exercicio060.py`, `exercicio061.py`, `exercicio062.py`, `exercicio063.py`, `exercicio064.py`, `exercicio065.py`, `exercicio066.py`, `exercicio067.py`, `exercicio068.py`, `exercicio069.py`, `exercicio070.py`, `exercicio071.py`, `exercicio072.py`, `exercicio073.py`
+    *   `teste.py`
+*   **`python/gemini-exercises/`**: Exercícios específicos para aprofundamento em tópicos variados.
+    *   `auditor-notas.py`
+    *   `comparacao-poo.py`
+*   **`python/hashtag-treinamentos/notebooks/`**: Notebooks Jupyter com projetos e análises de dados, incluindo automação e interação com SQL.
+    *   `calculo-percentual-lista-vendedores.ipynb`
+    *   `chatbot.ipynb`
+    *   `codigo-listcomprehension-lista-vendas.ipynb`
+    *   `funcao-vendedores-bateram-meta.ipynb`
+    *   `lista-de-produtos.ipynb`
+    *   `mini-projeto-analise-de-dados.ipynb`
+    *   `movendo-pastas.ipynb`
+    *   `teste.ipynb`
+    *   `utilizando-sql.ipynb`
+    *   `verificacao-de-estoque.ipynb`
+    *   `verificacao-inadimplencia.ipynb`
 
 ### JavaScript
 
-*   **`javascript/react/frontend_react_app`**
-    Uma aplicação frontend moderna e interativa construída utilizando a biblioteca React. Este projeto exibe a estrutura de componentes (como `Header.js` e `Footer.js`), gestão de estado e estilos modulados, representando uma arquitetura comum em Single Page Applications (SPAs).
+Esta seção (`javascript/`) contém exercícios e projetos em JavaScript, abordando desde lógica básica até conceitos de desenvolvimento web moderno.
 
-### HTML/CSS/JS (Vanilla)
+*   **`javascript/curso-em-video/exercises/`**: Exercícios de JavaScript do Curso em Vídeo.
+    *   `ex009.js`, `ex011.js`, `ex012.js`, `ex013.js`, `teste.js`
+*   **`javascript/udemy/web-moderno/array/`**: Estudos sobre arrays em JavaScript.
+    *   `ex01.js`, `ex02.js`, `ex03.js`
+*   **`javascript/udemy/web-moderno/array/exercises/`**: Exercícios práticos com arrays.
+    *   `ex01.js`, `ex02.js`, `ex03.js`, `ex04.js`, `ex05.js`
+*   **`javascript/udemy/web-moderno/function/`**: Exemplos e exercícios focados em funções em JavaScript.
+    *   `ex01.js`, `ex02.js`, `ex03.js`, `ex05.js`
+*   **Arquivos Temporários**: Na pasta `temp/` há arquivos JavaScript temporários como `node_58613e8aca144.tmp.js`, `node_5a25225aa5722.tmp.js`, `node_defba79772c7a.tmp.js`, `node_eacf0bbf33b8a.tmp.js`.
 
-*   **`web/html-css-js-vanilla/html_css_js_landing_page`**
-    Uma página de destino (landing page) estática desenvolvida com as tecnologias web fundamentais: HTML para estrutura, CSS puro para estilização e JavaScript vanilla para interatividade simples. É um exemplo clássico de desenvolvimento web puro.
+### HTML e CSS
 
-### Shell Script
+A seção `web/` dedica-se a projetos e exercícios de desenvolvimento web utilizando HTML e CSS para a estruturação e estilização, com JavaScript para interatividade.
 
-*   **`shell/scripts/shell_scripts`**
-    Uma coleção de scripts shell projetados para automação de tarefas. Inclui exemplos como `backup.sh`, que pode ser usado para automatizar processos de backup, demonstrando a capacidade de scripts para gerenciar sistemas.
+*   **`web/alura/alura-plus/`**: Projeto replicando uma interface da Alura Plus.
+    *   `index.html`
+    *   `style.css`
+    *   Imagens: `img/background.png`, `img/celular.png`, `img/combo.png`, `img/computador.png`, `img/logo.png`, `img/notebook.png`, `img/plataformas.png`, `img/telas.png`, `img/tv.png`.
+*   **`web/alura/portfolio/`**: Projeto de portfólio pessoal.
+    *   `about.html`
+    *   `index.html`
+    *   `styles/style.css`
+    *   Ativos: `assets/github.png`, `assets/imagem.jpg`, `assets/instagram.png`, `assets/linkedin.png`, `assets/twitch.png`, `assets/twitter-novo.png`, `assets/twitter.png`.
+*   **`web/curso-em-video/android-project/`**: Projeto de página web sobre a história do Android.
+    *   `index.html`
+    *   `style/style.css`
+    *   Fontes: `fonts/idroid.otf`
+    *   Imagens: `image/bugdroid.png`, `image/dan-droids-pq.png`, `image/dan-droids.png`, `image/favicon.ico`, `image/irina-blok-pq.jpg`, `image/irina-blok.jpg`.
+*   **`web/curso-em-video/cordel-project/`**: Projeto de um site de cordel.
+    *   `index.html`
+    *   `style/style.css`
+    *   Imagens: `images/background001.jpg`, `images/background002.jpg`.
+*   **`web/curso-em-video/exercises/`**: Uma série de exercícios interativos, cada um com sua própria estrutura.
+    *   `ex001/`: `index.html`, `script/script.js`, `style/style.css`, e imagens (`imagens/manha.jpg`, `imagens/noite.jpg`, `imagens/tarde.jpg`).
+    *   `ex002/`: `index.html`, `script/script.js`, `style/style.css`, e imagens de pessoas (`imagens/adulto-homem.jpg`, `imagens/adulto-mulher.jpg`, `imagens/crianca-homem.jpg`, `imagens/crianca-mulher.jpg`, `imagens/jovem-homem.jpg`, `imagens/jovem-mulher.jpg`).
+    *   `ex003/`: `index.html`, `script/script.js`, `style/style.css`.
+    *   `ex004/`: `index.html`, `script/script.js`, `style/style.css`.
+    *   `ex005/`: `index.html`, `script/script.js`, `style/style.css`.
+*   **`web/curso-em-video/login-project/`**: Projeto de página de login.
+    *   `index.html`
+    *   `style/style.css`
+    *   Imagens: `image/construcao.jpg`, `image/key.svg`, `image/person.svg`.
+*   **`web/curso-em-video/simple-exercises/`**: Uma coleção de exercícios HTML simples.
+    *   `ex001.html`, `ex002.html`, `ex003.html`, `ex004.html`, `ex005.html`, `ex006.html`, `ex007.html`, `ex010.html`, `ex010b.html`.
+*   **`web/curso-em-video/video-project/`**: Projeto de galeria de vídeos.
+    *   `index.html`
+    *   `style/style.css`
+    *   Mídias: `midia/thumb-hardware.png`, `midia/thumb-html.png`, `midia/thumb-js.png`, `midia/thumb-python.png`, `midia/voltar.png`.
+    *   Vídeos: `video-hardware.html`, `video-html.html`, `video-python.html`, `videos-js.html`.
 
-### Outros
+### Dados
 
-*   **`data/misc_config.json`**
-    Um arquivo JSON que armazena configurações diversas ou dados genéricos não diretamente ligados a um projeto específico, mas que podem ser consumidos por várias aplicações.
+Esta seção (`data/`) agrupa arquivos de dados em vários formatos, como CSV e XLSX, utilizados em projetos de análise e processamento de dados.
 
-*   **`docs/notes.txt`**
-    Um arquivo de texto simples para anotações, ideias ou documentação rápida relacionada ao repositório ou a algum de seus projetos.
+*   **`data/casa-do-codigo/`**: Dados e metadados para projetos da Casa do Código.
+    *   `README.md`
+    *   `empreendimento.csv`, `execucaofinanceira.csv`, `instituicao.csv`, `licitacao.csv`
+    *   Metadados: `meta-data/empreendimento.txt`, `meta-data/execucaofinanceira.txt`, `meta-data/instituicao.txt`, `meta-data/licitacao.txt`.
+*   **`data/hashtag-treinamentos/`**: Conjuntos de dados para exercícios da Hashtag Treinamentos.
+    *   `base-servicos-prestados.xlsx`
+    *   `cadastro-clientes.csv`, `cadastro-funcionarios.csv`
 
 ## Tecnologias, Frameworks e Bibliotecas
 
-Esta seção detalha as principais tecnologias, frameworks e bibliotecas utilizadas nos projetos contidos neste repositório, organizadas por linguagem de programação.
+Este repositório utiliza e demonstra o uso das seguintes tecnologias e bibliotecas:
 
-### Java
+*   **Python**:
+    *   `numpy` (para computação numérica)
+    *   `pandas` (para manipulação e análise de dados)
+    *   `pyodbc` (para conexão com bancos de dados ODBC)
+    *   `math` (módulo padrão para operações matemáticas)
+    *   `random` (módulo padrão para geração de números aleatórios)
+    *   `os` (módulo padrão para interação com o sistema operacional)
+    *   `time` (módulo padrão para operações de tempo)
+*   **JavaScript**:
+    *   JavaScript Vanilla (para interatividade em páginas web)
+*   **HTML5**: (para estruturação de conteúdo web)
+*   **CSS3**: (para estilização e design responsivo de páginas web)
 
-*   **Spring Boot**: Framework líder para construção de aplicações Spring, facilitando o desenvolvimento de microsserviços e APIs RESTful com configuração mínima.
-*   **Maven**: Ferramenta robusta para automação de build e gerenciamento de dependências de projetos Java, garantindo consistência e reprodutibilidade.
-*   **Spring Data JPA**: Parte do ecossistema Spring, simplifica a implementação de camadas de acesso a dados usando a Java Persistence API (JPA), permitindo a criação de repositórios facilmente.
-*   **JUnit**: Framework padrão para escrita e execução de testes unitários em aplicações Java, essencial para garantir a qualidade do código.
+## Outros Arquivos Relevantes
 
-### Python
+*   **`.gitignore`**: Define arquivos e diretórios a serem ignorados pelo controle de versão Git.
+*   **`misc/license`**: Contém a licença de uso do repositório.
+*   **`misc/coletor-copy-copy.txt`**, **`misc/coletor-copy.txt`**, **`misc/coletor.txt`**: Arquivos de texto diversos na pasta `misc/`.
+*   **`logs/automacao.log`**: Arquivo de log de automação na pasta `logs/`.
 
-*   **Flask**: Um micro-framework web leve e flexível para Python, ideal para construir APIs e aplicações web de pequeno e médio porte de forma rápida.
-*   **Pandas**: Biblioteca fundamental para análise e manipulação de dados em Python, oferecendo estruturas de dados eficientes como DataFrames.
-*   **NumPy**: Biblioteca essencial para computação numérica em Python, fornecendo suporte para arrays multidimensionais e funções matemáticas de alto nível.
-*   **Requests**: Biblioteca HTTP para Python, simplifica o envio de requisições web e o tratamento de respostas, amplamente utilizada em web scraping e interação com APIs.
-*   **BeautifulSoup4**: Biblioteca Python para parsing de documentos HTML e XML, facilitando a extração de dados de páginas web.
-*   **Jinja2**: Motor de template amplamente utilizado em aplicações web Python (especialmente com Flask) para renderizar conteúdo dinâmico em HTML.
-
-### JavaScript
-
-*   **React**: Uma biblioteca JavaScript declarativa, eficiente e flexível para a construção de interfaces de usuário baseadas em componentes.
-*   **npm / Yarn**: Gerenciadores de pacotes para Node.js, essenciais para instalar, gerenciar e compartilhar dependências em projetos JavaScript.
-*   **Fetch API**: Uma interface moderna para fazer requisições de rede (como requisições HTTP) diretamente no navegador, oferecendo uma alternativa poderosa ao XMLHttpRequest.
-
-### HTML/CSS
-
-*   **HTML5**: A última versão da linguagem de marcação padrão para criar páginas web, introduzindo novos elementos e APIs semânticas.
-*   **CSS3**: A versão mais recente das Cascading Style Sheets, que permite o estilo de elementos HTML, adicionando recursos avançados de design e animação.
-
-### Shell Script
-
-*   **Bash**: O Bourne-Again SHell, um interpretador de comandos e linguagem de script amplamente utilizado em sistemas operacionais baseados em Unix/Linux para automação de tarefas.
-
-### Ferramentas e Outros
-
-*   **JSON (JavaScript Object Notation)**: Um formato leve de intercâmbio de dados, fácil para humanos lerem e escreverem, e para máquinas analisarem e gerarem.
-*   **Markdown**: Uma linguagem de marcação leve com sintaxe de formatação de texto plano, projetada para ser convertida em HTML e outros formatos.
-
-## Como Usar/Configurar
-
-Para explorar os projetos neste repositório, siga estas instruções gerais. Instruções específicas para cada projeto podem ser encontradas em seus respectivos diretórios `README.md` (se presentes) ou em comentários no código.
-
-1.  **Clone o Repositório:**
-    bash
-    git clone https://github.com/{{ $('Configuracao').item.json.owner }}/seu-repositorio.git
-    cd seu-repositorio
-    
-
-2.  **Navegue até o Projeto Desejado:**
-    Entre no diretório do projeto que você deseja explorar (ex: `cd python/flask/python_flask_app`).
-
-3.  **Instale as Dependências:**
-    *   **Python:** Para projetos Python, crie um ambiente virtual e instale as dependências:
-        bash
-        python -m venv venv
-        source venv/bin/activate  # No Windows, use `venv\Scripts\activate`
-        pip install -r requirements.txt
-        
-    *   **Java:** Para projetos Java com Maven, as dependências serão baixadas automaticamente na primeira build ou ao executar:
-        bash
-        mvn clean install
-        
-    *   **JavaScript (Node.js):** Para projetos JavaScript com `package.json`:
-        bash
-        npm install  # ou `yarn install`
-        
-
-4.  **Execute o Projeto:**
-    Siga as instruções específicas de cada projeto para executá-lo (ex: `python app.py` para Flask, `npm start` para React, `java -jar target/app.jar` para Spring Boot).
-
-## Contribuição
-
-Contribuições são bem-vindas! Se você deseja melhorar algum dos projetos ou adicionar um novo, por favor, siga os passos:
-
-1.  Faça um fork do repositório.
-2.  Crie uma nova branch para sua feature (`git checkout -b feature/minha-feature`).
-3.  Faça suas alterações e commit (`git commit -m 'feat: Adiciona minha nova feature'`).
-4.  Faça push para a branch (`git push origin feature/minha-feature`).
-5.  Abra um Pull Request detalhando suas alterações.
-
-## Licença
-
-Este repositório está licenciado sob a licença MIT. Consulte o arquivo `LICENSE` na raiz de cada projeto (se aplicável) ou na raiz do repositório para mais detalhes.
-
-## Autor
-
-Yohan Vallier
-[GitHub](https://github.com/{{ $('Configuracao').item.json.owner }})
+---
+Desenvolvido por [Yohan Vallier](https://github.com/YohanVallier)
