@@ -1,91 +1,100 @@
-# Coleção de Estudos e Projetos
+# Study and Projects Collection
 
-Este repositório serve como um arquivo de projetos, exercícios e anotações desenvolvidos durante cursos e estudos em diversas plataformas como Alura, Casa do Código, Curso em Vídeo, Udemy e Hashtag Treinamentos.
+This repository serves as an archive of projects, exercises, and notes developed during courses and studies across various platforms such as Alura, Casa do Código, Curso em Vídeo, Udemy, and Hashtag Treinamentos.
 
-## Sumário
-- [Estrutura do Repositório](#estrutura-do-repositório)
-- [Linguagens e Conteúdo](#linguagens-e-conteúdo)
-- [Python](#python)
-- [HTML & CSS](#html--css)
-- [JavaScript](#javascript)
-- [Dados](#dados)
-- [Tecnologias, Frameworks e Bibliotecas](#tecnologias-frameworks-e-bibliotecas)
-- [Miscelânea](#miscelânea)
+## Table of Contents
 
-## Estrutura do Repositório
+* [Repository Structure](https://www.google.com/search?q=%23repository-structure)
+* [Languages and Content](https://www.google.com/search?q=%23languages-and-content)
+* [Python](https://www.google.com/search?q=%23python-1)
+* [HTML & CSS](https://www.google.com/search?q=%23html--css-1)
+* [JavaScript](https://www.google.com/search?q=%23javascript-1)
+* [Data](https://www.google.com/search?q=%23data)
+* [Technologies, Frameworks, and Libraries](https://www.google.com/search?q=%23technologies-frameworks-and-libraries)
+* [Miscellaneous](https://www.google.com/search?q=%23miscellaneous)
 
-O repositório é organizado em diretórios principais, cada um contendo materiais relacionados a diferentes tópicos ou plataformas de estudo.
+## Repository Structure
 
--   **Casa do Código**: Contém materiais de estudo e projetos relacionados à plataforma Casa do Código, incluindo um subdiretório `dados` para arquivos de dados específicos.
--   **Curso em Vídeo**: Abriga exercícios, projetos e anotações dos cursos do Curso em Vídeo. Inclui subdiretórios como `Exercícios propostos` e `Projeto Android`.
--   **data**: Diretório centralizado para armazenamento de diversos conjuntos de dados, incluindo subdiretórios para `casa-do-codigo` e `hashtag-treinamentos`.
--   **html-css**: Contém todos os projetos e exercícios desenvolvidos utilizando HTML e CSS, organizados por plataforma de ensino ou tipo de projeto.
--   **javascript**: Dedicado a projetos e exercícios em JavaScript, com subdivisões por curso ou foco.
--   **misc**: Contém arquivos variados e de propósito geral, como licenças.
--   **python**: Agrupa todo o conteúdo relacionado à linguagem Python, desde notebooks de data science até exercícios básicos e scripts de automação.
+The repository is organized into main directories, each containing materials related to different topics or study platforms.
 
-## Linguagens e Conteúdo
+* **Casa do Código**: Contains study materials and projects related to the Casa do Código platform, including a `dados` subdirectory for specific data files.
+* **Curso em Vídeo**: Houses exercises, projects, and notes from Curso em Vídeo courses. Includes subdirectories such as `Exercícios propostos` and `Projeto Android`.
+* **data**: Centralized directory for storing various datasets, including subdirectories for `casa-do-codigo` and `hashtag-treinamentos`.
+* **html-css**: Contains all projects and exercises developed using HTML and CSS, organized by teaching platform or project type.
+* **javascript**: Dedicated to JavaScript projects and exercises, subdivided by course or focus.
+* **misc**: Contains miscellaneous and general-purpose files, such as licenses.
+* **python**: Groups all content related to the Python language, ranging from data science notebooks to basic exercises and automation scripts.
+
+## Languages and Content
 
 ### Python
-A seção de Python é robusta e abrange diversas áreas, incluindo data science, automação e exercícios de lógica de programação.
 
--   **`python/alura-data-science`**: Contém notebooks Jupyter (`.ipynb`) focados em conceitos e práticas de ciência de dados da Alura, como `Hora da prática.ipynb`, `sorteio_de_pessoas.ipynb`, e `teste.ipynb`.
--   **`python/casa-do-codigo`**: Inclui scripts (`.py`) e notebooks Jupyter (`.ipynb`) como `Download_Arquivo_internet.py`, `Estrutura_de_dados_2.ipynb`, `Estrutura_de_leitura_de_dados.ipynb`, `leitor_arquivos.py`, e `teste.py`, que provavelmente lidam com manipulação e leitura de dados.
--   **`python/curso-em-video-exercises`**: Uma vasta coleção de exercícios (`.py`) do Curso em Vídeo, numerados de `Exercício001.py` a `Exercício073.py`, além de um arquivo `teste.py`, cobrindo uma ampla gama de tópicos fundamentais da linguagem.
--   **`python/gemini-exercises`**: Exercícios Python como `auditor_notas.py` e `comparacao_poo.py`, que podem explorar lógica de negócios ou conceitos de Programação Orientada a Objetos.
--   **`python/hashtag-treinamentos`**: Notebooks Jupyter (`.ipynb`) da Hashtag Treinamentos, com foco em análise de dados, automação e integração SQL, como `Codigo_listcomprehension_lista_vendas.ipynb`, `Cálculo_percentual_lista_vendedores.ipynb`, `Função_vendedores_bateram_meta.ipynb`, `Lista_de_Produtos.ipynb`, `Mini_projeto_análise_de_dados.ipynb`, `Movendo_pastas.ipynb`, `Verificação_Inadimplência.ipynb`, `Verificação_de_estoque.ipynb`, `chatbot.ipynb`, `teste.ipynb`, e `utilizando_sql.ipynb`.
+The Python section is robust and covers several areas, including data science, automation, and programming logic exercises.
+
+* **`python/alura-data-science`**: Contains Jupyter notebooks (`.ipynb`) focused on Alura's data science concepts and practices, such as `Hora da prática.ipynb`, `sorteio_de_pessoas.ipynb`, and `teste.ipynb`.
+* **`python/casa-do-codigo`**: Includes scripts (`.py`) and Jupyter notebooks (`.ipynb`) such as `Download_Arquivo_internet.py`, `Estrutura_de_dados_2.ipynb`, `Estrutura_de_leitura_de_dados.ipynb`, `leitor_arquivos.py`, and `teste.py`, which likely deal with data manipulation and reading.
+* **`python/curso-em-video-exercises`**: A vast collection of exercises (`.py`) from Curso em Vídeo, numbered from `Exercício001.py` to `Exercício073.py`, in addition to a `teste.py` file, covering a wide range of fundamental language topics.
+* **`python/gemini-exercises`**: Python exercises like `auditor_notas.py` and `comparacao_poo.py`, which may explore business logic or Object-Oriented Programming concepts.
+* **`python/hashtag-treinamentos`**: Jupyter notebooks (`.ipynb`) from Hashtag Treinamentos, focusing on data analysis, automation, and SQL integration, such as `Codigo_listcomprehension_lista_vendas.ipynb`, `Cálculo_percentual_lista_vendedores.ipynb`, `Função_vendedores_bateram_meta.ipynb`, `Lista_de_Produtos.ipynb`, `Mini_projeto_análise_de_dados.ipynb`, `Movendo_pastas.ipynb`, `Verificação_Inadimplência.ipynb`, `Verificação_de_estoque.ipynb`, `chatbot.ipynb`, `teste.ipynb`, and `utilizando_sql.ipynb`.
 
 ### HTML & CSS
-Projetos e exercícios que demonstram habilidades em desenvolvimento web front-end.
 
--   **`html-css/alura-alura-plus`**: Um projeto de landing page ou interface utilizando HTML (`index.html`) e CSS (`css/style.css`), com diversas imagens (`img/*.png`, `img/*.jpg`).
--   **`html-css/alura-portfolio`**: Um projeto de portfólio pessoal com páginas `index.html` e `about.html`, estilizado com `css/style.css` e contendo assets de imagens (`assets/*.png`, `assets/*.jpg`, `assets/*.svg`).
--   **`html-css/curso-em-video/android-project`**: Um projeto de layout de página temática do Android, com `index.html`, `css/style.css`, fontes (`fonts/idroid.otf`) e diversas imagens (`img/*.png`, `img/*.jpg`, `img/*.ico`).
--   **`html-css/curso-em-video/cordel-project`**: Projeto de cordel literário interativo com `index.html`, `css/style.css` e imagens de fundo (`img/*.jpg`).
--   **`html-css/curso-em-video/exercises`**: Uma série de exercícios práticos (`ex001` a `ex005`), cada um contendo seu próprio `index.html`, `css/style.css` e, em alguns casos, imagens (`img/*.jpg`).
--   **`html-css/curso-em-video/login-project`**: Projeto de uma página de login com `index.html`, `css/style.css` e imagens (`img/*.jpg`, `img/*.svg`).
--   **`html-css/curso-em-video/simple-exercises`**: Coleção de exercícios HTML simples (`ex001.html` a `ex010b.html`).
--   **`html-css/curso-em-video/video-project`**: Um projeto de galeria de vídeos com `index.html` e páginas de vídeo dedicadas (`video-hardware.html`, `video-html.html`, `video-python.html`, `videos-js.html`), estilizado com `css/style.css` e usando miniaturas de imagens (`img/*.png`).
+Projects and exercises demonstrating front-end web development skills.
+
+* **`html-css/alura-alura-plus`**: A landing page or interface project using HTML (`index.html`) and CSS (`css/style.css`), with various images (`img/*.png`, `img/*.jpg`).
+* **`html-css/alura-portfolio`**: A personal portfolio project with `index.html` and `about.html` pages, styled with `css/style.css` and containing image assets (`assets/*.png`, `assets/*.jpg`, `assets/*.svg`).
+* **`html-css/curso-em-video/android-project`**: An Android-themed page layout project, featuring `index.html`, `css/style.css`, fonts (`fonts/idroid.otf`), and various images (`img/*.png`, `img/*.jpg`, `img/*.ico`).
+* **`html-css/curso-em-video/cordel-project`**: Interactive literary cordel project with `index.html`, `css/style.css`, and background images (`img/*.jpg`).
+* **`html-css/curso-em-video/exercises`**: A series of practical exercises (`ex001` to `ex005`), each containing its own `index.html`, `css/style.css`, and, in some cases, images (`img/*.jpg`).
+* **`html-css/curso-em-video/login-project`**: A login page project with `index.html`, `css/style.css`, and images (`img/*.jpg`, `img/*.svg`).
+* **`html-css/curso-em-video/simple-exercises`**: Collection of simple HTML exercises (`ex001.html` to `ex010b.html`).
+* **`html-css/curso-em-video/video-project`**: A video gallery project with `index.html` and dedicated video pages (`video-hardware.html`, `video-html.html`, `video-python.html`, `videos-js.html`), styled with `css/style.css` and using image thumbnails (`img/*.png`).
 
 ### JavaScript
-Explora a programação client-side com JavaScript.
 
--   **`Curso em Vídeo/Exercícios propostos/ex003/script/node_eacf0bbf33b8a.tmp.js`**: Um arquivo temporário de script JavaScript, provavelmente gerado durante o desenvolvimento ou teste.
--   **`Curso em Vídeo/*.tmp.js`**: Vários arquivos temporários de JavaScript como `node_58613e8aca144.tmp.js`, `node_5a25225aa5722.tmp.js`, `node_defba79772c7a.tmp.js`.
--   **`javascript/curso-em-video/exercises`**: Exercícios JavaScript (`ex001/script.js` a `ex005/script.js`, além de `teste.js`) do Curso em Vídeo.
--   **`javascript/curso-em-video/simple-exercises`**: Exercícios JavaScript mais simples como `ex009.js`, `ex011.js`, `ex012.js`, `ex013.js`.
--   **`javascript/udemy-web-moderno/array-exercises`**: Exercícios focados em manipulação de arrays (`ex01.js` a `ex03.js`, e `list/ex01.js` a `list/ex05.js`) do curso Udemy Web Moderno.
--   **`javascript/udemy-web-moderno/function-exercises`**: Exercícios sobre funções (`Ex01.js` a `Ex05.js`) do curso Udemy Web Moderno.
+Explores client-side programming with JavaScript.
 
-## Dados
+* **`Curso em Vídeo/Exercícios propostos/ex003/script/node_eacf0bbf33b8a.tmp.js`**: A temporary JavaScript script file, likely generated during development or testing.
+* **`Curso em Vídeo/*.tmp.js`**: Various temporary JavaScript files such as `node_58613e8aca144.tmp.js`, `node_5a25225aa5722.tmp.js`, `node_defba79772c7a.tmp.js`.
+* **`javascript/curso-em-video/exercises`**: JavaScript exercises (`ex001/script.js` to `ex005/script.js`, plus `teste.js`) from Curso em Vídeo.
+* **`javascript/curso-em-video/simple-exercises`**: Simpler JavaScript exercises like `ex009.js`, `ex011.js`, `ex012.js`, `ex013.js`.
+* **`javascript/udemy-web-moderno/array-exercises`**: Exercises focused on array manipulation (`ex01.js` to `ex03.js`, and `list/ex01.js` to `list/ex05.js`) from the Udemy Web Moderno course.
+* **`javascript/udemy-web-moderno/function-exercises`**: Exercises on functions (`Ex01.js` to `Ex05.js`) from the Udemy Web Moderno course.
 
-O repositório inclui vários arquivos de dados utilizados nos projetos:
+## Data
 
--   **`data/casa-do-codigo`**: Contém arquivos CSV (`Empreendimento.csv`, `ExecucaoFinanceira.csv`, `Instituicao.csv`, `Licitacao.csv`) e arquivos de metadados (`meta/*.txt`) para projetos da Casa do Código.
--   **`data/hashtag-treinamentos`**: Inclui arquivos CSV (`CadastroClientes.csv`, `CadastroFuncionarios.csv`) e XLSX (`BaseServiçosPrestados.xlsx`) para exercícios da Hashtag Treinamentos.
--   **`Casa do Código/dados/data/*.DS_Store`**: Arquivos de metadados do macOS.
--   **`Casa do Código/dados/data/README.md`**: Documentação específica para os dados da Casa do Código.
+The repository includes various data files used across the projects:
 
-## Tecnologias, Frameworks e Bibliotecas
+* **`data/casa-do-codigo`**: Contains CSV files (`Empreendimento.csv`, `ExecucaoFinanceira.csv`, `Instituicao.csv`, `Licitacao.csv`) and metadata files (`meta/*.txt`) for Casa do Código projects.
+* **`data/hashtag-treinamentos`**: Includes CSV files (`CadastroClientes.csv`, `CadastroFuncionarios.csv`) and XLSX files (`BaseServiçosPrestados.xlsx`) for Hashtag Treinamentos exercises.
+* **`Casa do Código/dados/data/*.DS_Store`**: macOS metadata files.
+* **`Casa do Código/dados/data/README.md`**: Specific documentation for Casa do Código data.
 
-Este repositório faz uso das seguintes tecnologias, frameworks e bibliotecas:
+## Technologies, Frameworks, and Libraries
 
--   **Python:**
-    -   `numpy`: Para operações numéricas e computação científica (utilizado na pasta "Alura").
-    -   `time`: Para manipulação de tempo (utilizado nas pastas "Alura" e "Exercícios Curso em Vídeo").
-    -   `os`: Para interação com o sistema operacional (utilizado na pasta "Casa do Código").
-    -   `pandas`: Para análise e manipulação de dados (utilizado na pasta "Execícios Hashtag Treinamentos").
-    -   `pyodbc`: Para conectar-se a bancos de dados ODBC (utilizado na pasta "Execícios Hashtag Treinamentos").
-    -   `math`: Para funções matemáticas (utilizado na pasta "Exercícios Curso em Vídeo").
-    -   `random`: Para geração de números aleatórios (utilizado na pasta "Exercícios Curso em Vídeo").
--   **JavaScript:**
-    -   Utilizado com tags `<script>` em arquivos HTML para funcionalidades interativas (observado na pasta "Curso em Vídeo").
+This repository makes use of the following technologies, frameworks, and libraries:
 
-## Miscelânea
+* **Python:**
+* `numpy`: For numerical operations and scientific computing (used in the "Alura" folder).
+* `time`: For time manipulation (used in the "Alura" and "Curso em Vídeo Exercises" folders).
+* `os`: For interacting with the operating system (used in the "Casa do Código" folder).
+* `pandas`: For data analysis and manipulation (used in the "Hashtag Treinamentos Exercises" folder).
+* `pyodbc`: For connecting to ODBC databases (used in the "Hashtag Treinamentos Exercises" folder).
+* `math`: For mathematical functions (used in the "Curso em Vídeo Exercises" folder).
+* `random`: For random number generation (used in the "Curso em Vídeo Exercises" folder).
 
--   **`.gitignore`**: Arquivo para especificar arquivos e diretórios a serem ignorados pelo controle de versão Git.
--   **`misc/LICENSE`**: Contém a licença de uso do repositório.
--   **Arquivos de Log e Temporários**: `automacao.log`, `coletor copy copy.txt`, `coletor copy.txt`, `coletor.txt` e diversos arquivos `.tmp.js` e `.DS_Store` são presentes no repositório.
+
+* **JavaScript:**
+* Used with `<script>` tags in HTML files for interactive features (observed in the "Curso em Vídeo" folder).
+
+
+
+## Miscellaneous
+
+* **`.gitignore`**: File to specify files and directories to be ignored by Git version control.
+* **`misc/LICENSE`**: Contains the repository's usage license.
+* **Log and Temporary Files**: `automacao.log`, `coletor copy copy.txt`, `coletor copy.txt`, `coletor.txt`, and various `.tmp.js` and `.DS_Store` files are present in the repository.
 
 ---
+
 Yohan Vallier - [https://github.com/YohanVallier](https://github.com/YohanVallier)
